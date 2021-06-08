@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @CrossOrigin
-@Tag(name = "Dogs", description = "Dogs API")
+@Tag(name = "DogOwners")
 @RestController
 @RequestMapping("/api")
 public class DogController {
@@ -44,8 +44,7 @@ public class DogController {
     public DogResource createDog(
             @PathVariable(value = "dogOwnerId") Long dogOwnerId,
             @Valid @RequestBody SaveDogResource resource) {
-        return convertToResource(dogService.createDog(dogOwnerId,
-                convertToEntity(resource)));
+        return convertToResource(dogService.createDog(dogOwnerId, convertToEntity(resource)));
     }
 
     @PutMapping("/dogOwners/{dogOwnerId}/dogs/{dogId}")

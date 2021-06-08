@@ -1,8 +1,6 @@
 package com.gyasociety.CarryDoggyGoService.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,7 +14,7 @@ public class WalkingSession extends AuditModel{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Byte hours;
+    private Short hours;
 
     private Double price;
 
@@ -24,17 +22,22 @@ public class WalkingSession extends AuditModel{
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "dog_walker_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private DogWalker dogWalker;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "payment_type_id", nullable = false)
-    @JsonIgnore
-    private PaymentType paymentType;
+    @Transient
+    private Long dogWalkerId;
+
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "payment_type_id", nullable = false)
+//    @JsonIgnore
+//    private PaymentType paymentType;
+//
+//    @Transient
+//    private Long paymentTypeId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "qualification_id", nullable = false)
+    @JoinColumn(name = "qualification_id")
     @JsonIgnore
     private Qualification qualification;
 
@@ -131,11 +134,11 @@ public class WalkingSession extends AuditModel{
         return this;
     }
 
-    public Byte getHours() {
+    public Short getHours() {
         return hours;
     }
 
-    public WalkingSession setHours(Byte hours) {
+    public WalkingSession setHours(Short hours) {
         this.hours = hours;
         return this;
     }
@@ -194,15 +197,6 @@ public class WalkingSession extends AuditModel{
         return this;
     }
 
-    public PaymentType getPaymentType() {
-        return paymentType;
-    }
-
-    public WalkingSession setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
-        return this;
-    }
-
     public Qualification getQualification() {
         return qualification;
     }
@@ -211,4 +205,15 @@ public class WalkingSession extends AuditModel{
         this.qualification = qualification;
         return this;
     }
+
+    public Long getDogWalkerId() {
+        return dogWalkerId;
+    }
+
+    public WalkingSession setDogWalkerId(Long dogWalkerId) {
+        this.dogWalkerId = dogWalkerId;
+        return this;
+    }
+
+
 }

@@ -13,6 +13,10 @@ public class DogWalker extends User {
     @Size(max = 300)
     private String description;
 
+    @OneToMany(mappedBy = "dogWalker", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<WalkingSession> walkingSessions;
+
     //    ------------------------
     public String getDescription() {
         return description;
@@ -20,6 +24,15 @@ public class DogWalker extends User {
 
     public DogWalker setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public List<WalkingSession> getWalkingSessions() {
+        return walkingSessions;
+    }
+
+    public DogWalker setWalkingSessions(List<WalkingSession> walkingSessions) {
+        this.walkingSessions = walkingSessions;
         return this;
     }
 }

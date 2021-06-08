@@ -2,20 +2,20 @@ package com.gyasociety.CarryDoggyGoService.resource;
 
 import com.gyasociety.CarryDoggyGoService.domain.model.AuditModel;
 
-public class DogOwnerResource extends AuditModel {
+public class DogWalkerResource extends AuditModel {
 
     private Long id;
     private String userName;
     private String password;
     private String name;
     private String lastName;
-    private String address;
+    private String description;
 
     public Long getId() {
         return id;
     }
 
-    public DogOwnerResource setId(Long id) {
+    public DogWalkerResource setId(Long id) {
         this.id = id;
         return this;
     }
@@ -24,7 +24,7 @@ public class DogOwnerResource extends AuditModel {
         return userName;
     }
 
-    public DogOwnerResource setUserName(String userName) {
+    public DogWalkerResource setUserName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -33,7 +33,7 @@ public class DogOwnerResource extends AuditModel {
         return password;
     }
 
-    public DogOwnerResource setPassword(String password) {
+    public DogWalkerResource setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -42,7 +42,7 @@ public class DogOwnerResource extends AuditModel {
         return name;
     }
 
-    public DogOwnerResource setName(String name) {
+    public DogWalkerResource setName(String name) {
         this.name = name;
         return this;
     }
@@ -51,17 +51,17 @@ public class DogOwnerResource extends AuditModel {
         return lastName;
     }
 
-    public DogOwnerResource setLastName(String lastName) {
+    public DogWalkerResource setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDescription() {
+        return description;
     }
 
-    public DogOwnerResource setAddress(String address) {
-        this.address = address;
+    public DogWalkerResource setDescription(String description) {
+        this.description = description;
         return this;
     }
 }

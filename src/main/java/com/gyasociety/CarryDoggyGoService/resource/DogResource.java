@@ -1,8 +1,9 @@
 package com.gyasociety.CarryDoggyGoService.resource;
 
+import com.gyasociety.CarryDoggyGoService.domain.model.AuditModel;
 import com.gyasociety.CarryDoggyGoService.domain.model.DogOwner;
 
-public class DogResource {
+public class DogResource extends AuditModel {
 
     private Long id;
     private String name;
