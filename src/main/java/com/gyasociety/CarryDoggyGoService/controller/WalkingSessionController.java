@@ -1,10 +1,9 @@
-package com.gyasociety.CarryDoggyGoService.controller;
+package com.gyasociety.carrydoggygoservice.controller;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogWalker;
-import com.gyasociety.CarryDoggyGoService.domain.model.WalkingSession;
-import com.gyasociety.CarryDoggyGoService.domain.service.WalkingSessionService;
-import com.gyasociety.CarryDoggyGoService.resource.SaveWalkingSessionResource;
-import com.gyasociety.CarryDoggyGoService.resource.WalkingSessionResource;
+import com.gyasociety.carrydoggygoservice.domain.model.WalkingSession;
+import com.gyasociety.carrydoggygoservice.domain.service.WalkingSessionService;
+import com.gyasociety.carrydoggygoservice.resource.SaveWalkingSessionResource;
+import com.gyasociety.carrydoggygoservice.resource.WalkingSessionResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

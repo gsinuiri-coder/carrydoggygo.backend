@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,15 +28,15 @@ public class WalkingSession extends AuditModel{
     @Transient
     private Long dogWalkerId;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "payment_type_id", nullable = false)
-//    @JsonIgnore
-//    private PaymentType paymentType;
-//
-//    @Transient
-//    private Long paymentTypeId;
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "payment_type_id", nullable = false)
+    @JsonIgnore
+    private PaymentType paymentType;
+
+    @Transient
+    private Long paymentTypeId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "qualification_id")
     @JsonIgnore
     private Qualification qualification;
@@ -66,60 +66,60 @@ public class WalkingSession extends AuditModel{
     private List<WalkStatus> walkStatus;
 
     //    --------------------------------------------
-    public boolean isDogTaggedWith(Dog tag) {
-        return (this.getDogs().contains(tag));
+    public boolean isDogAssignedWith(Dog dog) {
+        return (this.getDogs().contains(dog));
     }
 
-    public WalkingSession dogTagWith(Dog tag) {
-        if(!this.isDogTaggedWith(tag)) {
-            this.getDogs().add(tag);
+    public WalkingSession assignDogWith(Dog dog) {
+        if(!this.isDogAssignedWith(dog)) {
+            this.getDogs().add(dog);
         }
         return this;
     }
 
-    public WalkingSession dogUnTagWith(Dog tag) {
-        if(this.isDogTaggedWith(tag)) {
-            this.getDogs().remove(tag);
-        }
-        return this;
-    }
-    //    --------------------------------------------
-
-    //    --------------------------------------------
-    public boolean isLocationTaggedWith(Location tag) {
-        return (this.getLocations().contains(tag));
-    }
-
-    public WalkingSession locationTagWith(Location tag) {
-        if(!this.isLocationTaggedWith(tag)) {
-            this.getLocations().add(tag);
-        }
-        return this;
-    }
-
-    public WalkingSession locationUnTagWith(Location tag) {
-        if(this.isLocationTaggedWith(tag)) {
-            this.getLocations().remove(tag);
+    public WalkingSession unAssignDogWith(Dog dog) {
+        if(this.isDogAssignedWith(dog)) {
+            this.getDogs().remove(dog);
         }
         return this;
     }
     //    --------------------------------------------
 
     //    --------------------------------------------
-    public boolean isWalkStatusTaggedWith(WalkStatus tag) {
-        return (this.getWalkStatus().contains(tag));
+    public boolean isLocationAssignedWith(Location location) {
+        return (this.getLocations().contains(location));
     }
 
-    public WalkingSession walkStatusTagWith(WalkStatus tag) {
-        if(!this.isWalkStatusTaggedWith(tag)) {
-            this.getWalkStatus().add(tag);
+    public WalkingSession assignLocationWith(Location location) {
+        if(!this.isLocationAssignedWith(location)) {
+            this.getLocations().add(location);
         }
         return this;
     }
 
-    public WalkingSession walkStatusUnTagWith(WalkStatus tag) {
-        if(this.isWalkStatusTaggedWith(tag)) {
-            this.getWalkStatus().remove(tag);
+    public WalkingSession unAssignLocationWith(Location location) {
+        if(this.isLocationAssignedWith(location)) {
+            this.getLocations().remove(location);
+        }
+        return this;
+    }
+    //    --------------------------------------------
+
+    //    --------------------------------------------
+    public boolean isWalkStatusAssignedWith(WalkStatus walkStatus) {
+        return (this.getWalkStatus().contains(walkStatus));
+    }
+
+    public WalkingSession assignWalkStatusWith(WalkStatus walkStatus) {
+        if(!this.isWalkStatusAssignedWith(walkStatus)) {
+            this.getWalkStatus().add(walkStatus);
+        }
+        return this;
+    }
+
+    public WalkingSession unAssignWalkStatusWith(WalkStatus walkStatus) {
+        if(this.isWalkStatusAssignedWith(walkStatus)) {
+            this.getWalkStatus().remove(walkStatus);
         }
         return this;
     }
@@ -161,6 +161,51 @@ public class WalkingSession extends AuditModel{
         return this;
     }
 
+    public DogWalker getDogWalker() {
+        return dogWalker;
+    }
+
+    public WalkingSession setDogWalker(DogWalker dogWalker) {
+        this.dogWalker = dogWalker;
+        return this;
+    }
+
+    public Long getDogWalkerId() {
+        return dogWalkerId;
+    }
+
+    public WalkingSession setDogWalkerId(Long dogWalkerId) {
+        this.dogWalkerId = dogWalkerId;
+        return this;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public WalkingSession setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+        return this;
+    }
+
+    public Long getPaymentTypeId() {
+        return paymentTypeId;
+    }
+
+    public WalkingSession setPaymentTypeId(Long paymentTypeId) {
+        this.paymentTypeId = paymentTypeId;
+        return this;
+    }
+
+    public Qualification getQualification() {
+        return qualification;
+    }
+
+    public WalkingSession setQualification(Qualification qualification) {
+        this.qualification = qualification;
+        return this;
+    }
+
     public List<Dog> getDogs() {
         return dogs;
     }
@@ -187,33 +232,4 @@ public class WalkingSession extends AuditModel{
         this.walkStatus = walkStatus;
         return this;
     }
-
-    public DogWalker getDogWalker() {
-        return dogWalker;
-    }
-
-    public WalkingSession setDogWalker(DogWalker dogWalker) {
-        this.dogWalker = dogWalker;
-        return this;
-    }
-
-    public Qualification getQualification() {
-        return qualification;
-    }
-
-    public WalkingSession setQualification(Qualification qualification) {
-        this.qualification = qualification;
-        return this;
-    }
-
-    public Long getDogWalkerId() {
-        return dogWalkerId;
-    }
-
-    public WalkingSession setDogWalkerId(Long dogWalkerId) {
-        this.dogWalkerId = dogWalkerId;
-        return this;
-    }
-
-
 }

@@ -1,6 +1,6 @@
-package com.gyasociety.CarryDoggyGoService.domain.repository;
+package com.gyasociety.carrydoggygoservice.domain.repository;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.Dog;
+import com.gyasociety.carrydoggygoservice.domain.model.Dog;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

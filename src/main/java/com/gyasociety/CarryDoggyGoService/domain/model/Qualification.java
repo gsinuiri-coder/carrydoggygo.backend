@@ -1,10 +1,7 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="qualifications")
@@ -17,7 +14,6 @@ public class Qualification extends AuditModel{
     @NotNull
     private Byte star;
 
-    //    -----------------------
     public Long getId() {
         return id;
     }

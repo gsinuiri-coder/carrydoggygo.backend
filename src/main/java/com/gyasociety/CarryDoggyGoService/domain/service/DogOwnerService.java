@@ -1,6 +1,6 @@
-package com.gyasociety.CarryDoggyGoService.domain.service;
+package com.gyasociety.carrydoggygoservice.domain.service;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogOwner;
+import com.gyasociety.carrydoggygoservice.domain.model.DogOwner;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

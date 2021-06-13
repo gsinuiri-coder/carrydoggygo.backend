@@ -1,8 +1,11 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -13,11 +16,10 @@ public class DogWalker extends User {
     @Size(max = 300)
     private String description;
 
-    @OneToMany(mappedBy = "dogWalker", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "dogWalker", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<WalkingSession> walkingSessions;
 
-    //    ------------------------
     public String getDescription() {
         return description;
     }

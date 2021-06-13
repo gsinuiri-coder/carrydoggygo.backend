@@ -1,8 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,7 +16,6 @@ public class PaymentType extends AuditModel{
     @Size(max = 100)
     private String name;
 
-    //    --------------------
     public Long getId() {
         return id;
     }

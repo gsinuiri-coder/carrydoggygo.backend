@@ -1,9 +1,9 @@
-package com.gyasociety.CarryDoggyGoService.controller;
+package com.gyasociety.carrydoggygoservice.controller;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogWalker;
-import com.gyasociety.CarryDoggyGoService.domain.service.DogWalkerService;
-import com.gyasociety.CarryDoggyGoService.resource.DogWalkerResource;
-import com.gyasociety.CarryDoggyGoService.resource.SaveDogWalkerResource;
+import com.gyasociety.carrydoggygoservice.domain.model.DogWalker;
+import com.gyasociety.carrydoggygoservice.domain.service.DogWalkerService;
+import com.gyasociety.carrydoggygoservice.resource.DogWalkerResource;
+import com.gyasociety.carrydoggygoservice.resource.SaveDogWalkerResource;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,28 +35,26 @@ public class DogWalkerController {
                     responseCode = "200",
                     content = @Content(mediaType = "application/json"))
     })
-    @GetMapping("/dogWalkers")
+    @GetMapping("/dogwalkers")
     public List<DogWalkerResource> getAllDogWalkers() {
         return dogWalkerService.getAllDogWalkers()
                 .stream().map(this::convertToResource)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/dogWalkers/{dogWalkerId}")
+    @GetMapping("/dogwalkers/{dogWalkerId}")
     public DogWalkerResource getDogWalkerById(@PathVariable(value = "dogWalkerId") Long dogWalkerId) {
         return convertToResource(dogWalkerService.getDogWalkerById(dogWalkerId));
     }
 
-    @PostMapping("/dogWalkers")
+    @PostMapping("/dogwalkers")
     public DogWalkerResource createDogWalker( @Valid @RequestBody SaveDogWalkerResource resource) {
 
         DogWalker dogWalker = convertToEntity(resource);
-
         return convertToResource(dogWalkerService.createDogWalker(dogWalker));
-
     }
 
-    @PutMapping("/dogWalkers/{dogWalkerId}")
+    @PutMapping("/dogwalkers/{dogWalkerId}")
     public DogWalkerResource updateDogWalker(@PathVariable Long dogWalkerId,
                                            @Valid @RequestBody SaveDogWalkerResource resource) {
         DogWalker dogWalker = convertToEntity(resource);
@@ -64,11 +62,10 @@ public class DogWalkerController {
                 dogWalkerService.updateDogWalker(dogWalkerId, dogWalker));
     }
 
-    @DeleteMapping("/dogWalkers/{dogWalkerId}")
+    @DeleteMapping("/dogwalkers/{dogWalkerId}")
     public ResponseEntity<?> deleteDogWalker(@PathVariable Long dogWalkerId) {
         return dogWalkerService.deleteDogWalker(dogWalkerId);
     }
-
 
     private DogWalker convertToEntity(SaveDogWalkerResource resource) {
         return mapper.map(resource, DogWalker.class);

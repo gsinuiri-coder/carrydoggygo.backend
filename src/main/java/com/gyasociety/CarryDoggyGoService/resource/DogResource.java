@@ -1,7 +1,7 @@
-package com.gyasociety.CarryDoggyGoService.resource;
+package com.gyasociety.carrydoggygoservice.resource;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.AuditModel;
-import com.gyasociety.CarryDoggyGoService.domain.model.DogOwner;
+import com.gyasociety.carrydoggygoservice.domain.model.AuditModel;
+import com.gyasociety.carrydoggygoservice.domain.model.DogOwner;
 
 public class DogResource extends AuditModel {
 

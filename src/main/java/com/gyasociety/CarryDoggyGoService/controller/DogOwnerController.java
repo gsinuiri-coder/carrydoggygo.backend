@@ -1,9 +1,9 @@
-package com.gyasociety.CarryDoggyGoService.controller;
+package com.gyasociety.carrydoggygoservice.controller;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogOwner;
-import com.gyasociety.CarryDoggyGoService.domain.service.DogOwnerService;
-import com.gyasociety.CarryDoggyGoService.resource.DogOwnerResource;
-import com.gyasociety.CarryDoggyGoService.resource.SaveDogOwnerResource;
+import com.gyasociety.carrydoggygoservice.domain.model.DogOwner;
+import com.gyasociety.carrydoggygoservice.domain.service.DogOwnerService;
+import com.gyasociety.carrydoggygoservice.resource.DogOwnerResource;
+import com.gyasociety.carrydoggygoservice.resource.SaveDogOwnerResource;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,19 +35,19 @@ public class DogOwnerController {
                     responseCode = "200",
                     content = @Content(mediaType = "application/json"))
     })
-    @GetMapping("/dogOwners")
+    @GetMapping("/dogowners")
     public List<DogOwnerResource> getAllDogOwners() {
         return dogOwnerService.getAllDogOwners()
                 .stream().map(this::convertToResource)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/dogOwners/{dogOwnerId}")
+    @GetMapping("/dogowners/{dogOwnerId}")
     public DogOwnerResource getDogOwnerById(@PathVariable(value = "dogOwnerId") Long dogOwnerId) {
         return convertToResource(dogOwnerService.getDogOwnerById(dogOwnerId));
     }
 
-    @PostMapping("/dogOwners")
+    @PostMapping("/dogowners")
     public DogOwnerResource createDogOwner( @Valid @RequestBody SaveDogOwnerResource resource) {
 
         DogOwner dogOwner = convertToEntity(resource);
@@ -55,7 +55,7 @@ public class DogOwnerController {
 
     }
 
-    @PutMapping("/dogOwners/{dogOwnerId}")
+    @PutMapping("/dogowners/{dogOwnerId}")
     public DogOwnerResource updateDogOwner(@PathVariable Long dogOwnerId,
                                            @Valid @RequestBody SaveDogOwnerResource resource) {
         DogOwner dogOwner = convertToEntity(resource);
@@ -63,11 +63,10 @@ public class DogOwnerController {
                 dogOwnerService.updateDogOwner(dogOwnerId, dogOwner));
     }
 
-    @DeleteMapping("/dogOwners/{dogOwnerId}")
+    @DeleteMapping("/dogowners/{dogOwnerId}")
     public ResponseEntity<?> deleteDogOwner(@PathVariable Long dogOwnerId) {
         return dogOwnerService.deleteDogOwner(dogOwnerId);
     }
-
 
     private DogOwner convertToEntity(SaveDogOwnerResource resource) {
         return mapper.map(resource, DogOwner.class);

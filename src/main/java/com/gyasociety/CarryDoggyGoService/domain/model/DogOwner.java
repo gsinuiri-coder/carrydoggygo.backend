@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

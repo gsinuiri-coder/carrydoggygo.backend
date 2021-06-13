@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.resource;
+package com.gyasociety.carrydoggygoservice.resource;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

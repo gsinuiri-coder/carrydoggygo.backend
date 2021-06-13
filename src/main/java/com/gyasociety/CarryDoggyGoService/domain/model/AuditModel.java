@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

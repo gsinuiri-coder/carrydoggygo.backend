@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.config;
+package com.gyasociety.carrydoggygoservice.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenApiConfiguration {
-    @Bean(name="easyNutritionOpenApi")
+    @Bean(name="carryDoggyGoOpenApi")
     public OpenAPI easyNutritionOpenApi (){
         return new OpenAPI()
                 .components(new Components())

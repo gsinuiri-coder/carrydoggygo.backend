@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,8 +22,6 @@ public class Report extends AuditModel{
     @JsonIgnore
     private WalkingSession walkingSession;
 
-
-    //    --------------------------
     public Long getId() {
         return id;
     }

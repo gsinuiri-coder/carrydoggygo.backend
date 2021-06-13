@@ -1,9 +1,9 @@
-package com.gyasociety.CarryDoggyGoService.service;
+package com.gyasociety.carrydoggygoservice.service;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogWalker;
-import com.gyasociety.CarryDoggyGoService.domain.repository.DogWalkerRepository;
-import com.gyasociety.CarryDoggyGoService.domain.service.DogWalkerService;
-import com.gyasociety.CarryDoggyGoService.exception.ResourceNotFoundException;
+import com.gyasociety.carrydoggygoservice.domain.model.DogWalker;
+import com.gyasociety.carrydoggygoservice.domain.repository.DogWalkerRepository;
+import com.gyasociety.carrydoggygoservice.domain.service.DogWalkerService;
+import com.gyasociety.carrydoggygoservice.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

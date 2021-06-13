@@ -1,10 +1,10 @@
-package com.gyasociety.CarryDoggyGoService;
+package com.gyasociety.carrydoggygoservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CarryDoggyGoServiceApplicationTests {
+class CarryDoggyGoApplicationTests {
 
 	@Test
 	void contextLoads() {

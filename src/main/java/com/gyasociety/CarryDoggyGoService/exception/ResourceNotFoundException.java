@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.exception;
+package com.gyasociety.carrydoggygoservice.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

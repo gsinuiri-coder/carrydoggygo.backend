@@ -1,4 +1,4 @@
-package com.gyasociety.CarryDoggyGoService.domain.model;
+package com.gyasociety.carrydoggygoservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
@@ -41,7 +41,6 @@ public class Dog extends AuditModel{
     @JsonIgnore
     private List<WalkingSession> walkingSessions;
 
-    //    -----------------
     public Long getId() {
         return id;
     }

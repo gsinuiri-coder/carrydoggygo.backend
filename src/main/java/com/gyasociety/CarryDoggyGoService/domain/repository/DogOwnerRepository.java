@@ -1,6 +1,6 @@
-package com.gyasociety.CarryDoggyGoService.domain.repository;
+package com.gyasociety.carrydoggygoservice.domain.repository;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.DogOwner;
+import com.gyasociety.carrydoggygoservice.domain.model.DogOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DogOwnerRepository extends JpaRepository<DogOwner, Long > {

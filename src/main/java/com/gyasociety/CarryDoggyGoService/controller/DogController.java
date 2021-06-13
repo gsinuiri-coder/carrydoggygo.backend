@@ -1,9 +1,9 @@
-package com.gyasociety.CarryDoggyGoService.controller;
+package com.gyasociety.carrydoggygoservice.controller;
 
-import com.gyasociety.CarryDoggyGoService.domain.model.Dog;
-import com.gyasociety.CarryDoggyGoService.domain.service.DogService;
-import com.gyasociety.CarryDoggyGoService.resource.DogResource;
-import com.gyasociety.CarryDoggyGoService.resource.SaveDogResource;
+import com.gyasociety.carrydoggygoservice.domain.model.Dog;
+import com.gyasociety.carrydoggygoservice.domain.service.DogService;
+import com.gyasociety.carrydoggygoservice.resource.DogResource;
+import com.gyasociety.carrydoggygoservice.resource.SaveDogResource;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,28 +26,28 @@ public class DogController {
     @Autowired
     private ModelMapper mapper;
 
-    @GetMapping("/dogOwners/{dogOwnerId}/dogs")
+    @GetMapping("/dogowners/{dogOwnerId}/dogs")
     public List<DogResource> getAllDogsByDogOwnerId( @PathVariable (value = "dogOwnerId") Long dogOwnerId) {
         return dogService.getAllDogsByDogOwnerId(dogOwnerId)
                 .stream().map(this::convertToResource)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/dogOwners/{dogOwnerId}/dogs/{dogId}")
+    @GetMapping("/dogowners/{dogOwnerId}/dogs/{dogId}")
     public DogResource getDogByIdAndDogOwnerId(
             @PathVariable(name = "dogOwnerId") Long dogOwnerId,
             @PathVariable(name = "dogId") Long dogId) {
         return convertToResource(dogService.getDogByIdAndDogOwnerId(dogOwnerId, dogId));
     }
 
-    @PostMapping("/dogOwners/{dogOwnerId}/dogs")
+    @PostMapping("/dogowners/{dogOwnerId}/dogs")
     public DogResource createDog(
             @PathVariable(value = "dogOwnerId") Long dogOwnerId,
             @Valid @RequestBody SaveDogResource resource) {
         return convertToResource(dogService.createDog(dogOwnerId, convertToEntity(resource)));
     }
 
-    @PutMapping("/dogOwners/{dogOwnerId}/dogs/{dogId}")
+    @PutMapping("/dogowners/{dogOwnerId}/dogs/{dogId}")
     public DogResource updateDog(
             @PathVariable (value = "dogOwnerId") Long dogOwnerId,
             @PathVariable (value = "dogId") Long dogId,
@@ -56,7 +56,7 @@ public class DogController {
                 convertToEntity(resource)));
     }
 
-    @DeleteMapping("/dogOwners/{dogOwnerId}/dogs/{dogId}")
+    @DeleteMapping("/dogowners/{dogOwnerId}/dogs/{dogId}")
     public ResponseEntity<?> deleteDog(
             @PathVariable (value = "dogOwnerId") Long dogOwnerId,
             @PathVariable (value = "dogId") Long dogId) {

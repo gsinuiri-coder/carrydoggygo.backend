@@ -1,4 +1,5 @@
-package com.gyasociety.CarryDoggyGoService.resource;
+package com.gyasociety.carrydoggygoservice.resource;
+
 
 import java.util.Date;
 
@@ -8,8 +9,8 @@ public class SaveWalkingSessionResource {
     private Double price;
     private Date dateSession;
     private Long dogWalkerId;
+    private Long paymentTypeId;
 
-    //    ----------------------------
     public Short getHours() {
         return hours;
     }
@@ -43,6 +44,15 @@ public class SaveWalkingSessionResource {
 
     public SaveWalkingSessionResource setDogWalkerId(Long dogWalkerId) {
         this.dogWalkerId = dogWalkerId;
+        return this;
+    }
+
+    public Long getPaymentTypeId() {
+        return paymentTypeId;
+    }
+
+    public SaveWalkingSessionResource setPaymentTypeId(Long paymentTypeId) {
+        this.paymentTypeId = paymentTypeId;
         return this;
     }
 }
